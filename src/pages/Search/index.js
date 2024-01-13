@@ -80,8 +80,8 @@ export default function Search() {
       <Style>
         <div className="full-container">
           <div className="flex align-center justify-start">
-            <Link className="flex align-center justify-center" to={'/'}>
-              <i className="icon fa-solid fa-arrow-left"></i>
+            <Link className="arrow-icon flex align-center justify-center" to={'/'}>
+              <i className="fa-solid fa-arrow-left"></i>
             </Link>
             <div className="input-box flex align-center">
               <input ref={input} onChange={handleChange} className="input" type="text" name="input" value={searchParams.get('q') && searchParams.get('q')} />

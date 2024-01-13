@@ -28,4 +28,20 @@ backdrop-filter: blur(20px);
 .navigation {
   padding-left: 56px;
 }
+@media only screen and (max-width: 1147px) {
+  .navigation {
+    padding-left: 12px;
+    .btn {
+      margin: 0;
+    }
+  }
+  .action {
+    .btn {
+      margin: 0;
+    }
+  }
+}
+@media only screen and (max-width: 740px) {
+  display: none;
+}
 `;

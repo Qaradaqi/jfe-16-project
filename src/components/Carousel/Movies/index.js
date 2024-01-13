@@ -17,6 +17,7 @@ let slidesToMovePerClick = 5;
 
 export default function MovieSlider({ name, id, page }) {
   const swiperRef = useRef(null);
+  let isTrigered = false;
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState({
     data: [],
@@ -71,8 +72,21 @@ export default function MovieSlider({ name, id, page }) {
             slidesPerView={itemsPerView}
             slidesPerGroup={slidesToMovePerClick} // Move slidesToMovePerClick slides together
             speed={200} // Default transition duration
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onTransitionEnd={(swiper) => { swiper.snapGrid = [0, 1180]; }}
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+
+            onBeforeTransitionStart={(swiper) => {
+              if (swiper.isEnd && !isTrigered) {
+                isTrigered = true;
+                swiper.snapGrid[swiper.snapGrid.length - 1] += 200;
+                swiper.translate -= 200;
+                swiper.translateTo = swiper.translate;
+                swiper.width = swiper.snapGrid[swiper.snapGrid.length - 1];
+                swiper.slidesGrid[swiper.activeIndex] += 200;
+              }
+              console.log(swiper);
+            }}
           >
             {loading ? <div className='flex align-center justify-center'>
               <Loading />

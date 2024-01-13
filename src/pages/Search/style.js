@@ -3,7 +3,7 @@ import { pallete } from "../../theme";
 
 export const Style = styled.div`
   padding: 100px 0;
-  .icon {
+  .arrow-icon {
     color: ${pallete.primaryColor};
     background: ${pallete.footerBG};
     font-size: 1.8rem;

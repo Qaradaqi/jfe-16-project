@@ -12,7 +12,7 @@ export default function AccountBanner() {
                 <h3>Create your free account</h3>
               </div>
               <ul className="items flex flex-column">
-                <li className="item flex align-center gap-10">
+                <li className="item flex align-start">
                   <i className="icon fa-solid fa-circle-check"></i>
                   <span>Manage parental controls for kids and teens</span>
                 </li>

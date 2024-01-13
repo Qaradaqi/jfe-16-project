@@ -28,7 +28,7 @@ padding: 28px 0 41px;
       height: 100%;
       z-index: 1;
       display: flex;
-      padding-left: 72px; 
+      padding: 0 0 0 72px; 
     }
   }
 
@@ -48,6 +48,9 @@ padding: 28px 0 41px;
       z-index: 1;
     }
   }
+  // .swiper-slide:nth-last-child(1) {
+  //   margin-right: 120px !important;
+  // }
   .swiper-slide img {
     display: block;
     width: 100%;

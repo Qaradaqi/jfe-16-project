@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import FooterItems from "./items";
 import FooterSocial from "./socialMedia";
 import { Style } from "./style";
@@ -71,13 +72,28 @@ const thirdColumn = {
   ],
 };
 export default function Footer() {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const updateWindowWidth = () => {
+      setWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', updateWindowWidth);
+    return () => window.removeEventListener('resize', updateWindowWidth);
+  }, [window.innerWidth]);
   return (
     <Style>
       <div className="flex justify-around align-start">
         <FooterItems column={firstColumn} />
         <FooterItems column={secondColumn} />
         <FooterItems column={thirdColumn} />
-        <FooterSocial />
+        <div className={width > 1440 ? 'active' : 'deactive'}>
+          <FooterSocial />
+        </div>
+      </div>
+      <div className={width < 1440 ? 'active' : 'deactive'}>
+        <div className="second-social flex align-center justify-center">
+          <FooterSocial />
+        </div>
       </div>
       <p className="copyright">
         &copy; 2024 Crackle Plus, LLC. All rights reserved.

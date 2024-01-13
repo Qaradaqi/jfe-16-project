@@ -41,19 +41,21 @@ export default function HeroSection({ id, genre_id }) {
       <div className="full-container">
         <div className="background"></div>
         <div className="hero-content">
-          <div className="title">
+          <div className="title flex align-center">
             <h3>{movie.title}</h3>
           </div>
           <div className="hero-top flex align-center justify-start gap-10">
             <p className="type">{movie.type}</p>
             <p className="genres">{movie.genres.join(' ▪ ')}</p>
           </div>
-          <div className="btn flex align-center gap-5">
-            <Button href={'/'} type='primary' size='large' icon={'fa-solid fa-play'}>Watch Now</Button>
-            <Button href={'/'} type='dark' size='large'>More Info</Button>
-          </div>
-          <div className="plot flex align-center">
-            <p>{movie.plot}</p>
+          <div className="plot-btn flex flex-column">
+            <div className="btn flex align-center gap-5">
+              <Button href={'/'} type='primary' size='large' icon={'fa-solid fa-play'}>Watch Now</Button>
+              <Button href={'/'} type='dark' size='large'>More Info</Button>
+            </div>
+            <div className="plot flex align-center">
+              <p>{movie.plot}</p>
+            </div>
           </div>
         </div>
         <div className="spotlight">

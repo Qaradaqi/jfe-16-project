@@ -62,6 +62,9 @@ ul, ol {
 .justify-evenly {
     justify-content: space-evenly;
 }
+.justify-end {
+    justify-content: end;
+}
 .gap-5 {
     gap: 5px;
 }

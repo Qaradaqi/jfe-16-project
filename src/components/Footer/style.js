@@ -13,4 +13,13 @@ margin-top: 40px;
   text-align: center;
   padding: 0 16px;
 }
+.active {
+  display: block;
+}
+.deactive {
+  display: none;
+}
+.second-social {
+  margin-top: 75px;
+}
 `;
