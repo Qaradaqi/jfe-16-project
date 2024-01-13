@@ -28,12 +28,12 @@ export default function ResponsiveHeader() {
               </div>
             </div>
             <div className="right-side flex align-center gap-10">
-              <div className="search flex aling-center justify-center">
+              <Link to={'/search'} className="search flex aling-center justify-center">
                 <i className="fa-solid fa-magnifying-glass"></i>
-              </div>
-              <div className="login flex aling-center justify-center">
+              </Link>
+              <Link to={'/'} className="login flex aling-center justify-center">
                 <i className="fa-regular fa-circle-user"></i>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

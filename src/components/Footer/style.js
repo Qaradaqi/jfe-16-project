@@ -22,4 +22,11 @@ margin-top: 40px;
 .second-social {
   margin-top: 75px;
 }
+.responsive-item {
+  border-bottom: 1px solid ${pallete.darkBorder};
+  width: calc(100% - 15px);
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
 `;

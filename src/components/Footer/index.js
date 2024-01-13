@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import FooterItems from "./items";
 import FooterSocial from "./socialMedia";
 import { Style } from "./style";
+import FooterResponsiveItems from "./items/Responsive";
 
 
 const firstColumn = {
@@ -82,12 +83,23 @@ export default function Footer() {
   }, [window.innerWidth]);
   return (
     <Style>
-      <div className="flex justify-around align-start">
+      <div className={width > 1024 ? `active flex justify-around align-start` : 'deactive'}>
         <FooterItems column={firstColumn} />
         <FooterItems column={secondColumn} />
         <FooterItems column={thirdColumn} />
         <div className={width > 1440 ? 'active' : 'deactive'}>
           <FooterSocial />
+        </div>
+      </div>
+      <div className={width < 1024 ? 'active flex flex-column align-start' : 'deactive'}>
+        <div className="responsive-item">
+          <FooterResponsiveItems column={firstColumn} />
+        </div>
+        <div className="responsive-item">
+          <FooterResponsiveItems column={secondColumn} />
+        </div>
+        <div className="responsive-item">
+          <FooterResponsiveItems column={thirdColumn} />
         </div>
       </div>
       <div className={width < 1440 ? 'active' : 'deactive'}>
