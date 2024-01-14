@@ -4,6 +4,7 @@ import { Style } from "./style";
 import { api } from "../../utils/api";
 import GenresApi from "../Genres";
 import Button from "../uiElements/Button";
+import Movies from "../Carousel/Movies/Slider";
 
 export default function HeroSection({ id, genre_id }) {
   const [loading, setLoading] = useState(false);
@@ -59,7 +60,7 @@ export default function HeroSection({ id, genre_id }) {
           </div>
         </div>
         <div className="spotlight">
-          <MovieSlider id={genre_id} name={'Spotligiht'} page={1} />
+          <Movies id={genre_id} name={'Spotligiht'} page={1} />
         </div>
       </div>
     </Style>

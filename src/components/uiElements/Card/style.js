@@ -9,7 +9,7 @@ export const Style = styled.a`
   height: 100%;
   .card-content {
     width: 100%;
-    height: 366px;
+    height: 100%;
     background-color: ${pallete.heroTypeBG};
     border-radius: 6px;
     transition: transform .08s ease-in-out;

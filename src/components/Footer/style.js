@@ -14,7 +14,7 @@ margin-top: 40px;
   padding: 0 16px;
 }
 .active {
-  display: block;
+  display: flex;
 }
 .deactive {
   display: none;

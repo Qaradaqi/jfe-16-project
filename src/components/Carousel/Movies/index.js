@@ -75,8 +75,7 @@ export default function MovieSlider({ name, id, page }) {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
-
-            onBeforeTransitionStart={(swiper) => {
+            onSetTransition={(swiper) => {
               if (swiper.isEnd && !isTrigered) {
                 isTrigered = true;
                 swiper.snapGrid[swiper.snapGrid.length - 1] += 200;
@@ -85,8 +84,40 @@ export default function MovieSlider({ name, id, page }) {
                 swiper.width = swiper.snapGrid[swiper.snapGrid.length - 1];
                 swiper.slidesGrid[swiper.activeIndex] += 200;
               }
-              console.log(swiper);
             }}
+            // breakpointsBase="window"
+            // breakpoints={{
+            //   250: {
+            //     slidesPerView: 1,
+            //     spaceBetween: 5,
+            //     slidesPerGroup: 1,
+            //   },
+            //   380: {
+            //     slidesPerView: 2,
+            //     spaceBetween: 5,
+            //     slidesPerGroup: 1,
+            //   },
+            //   520: {
+            //     slidesPerView: 3,
+            //     spaceBetween: 5,
+            //     slidesPerGroup: 2,
+            //   },
+            //   750: {
+            //     slidesPerView: 4,
+            //     spaceBetween: 5,
+            //     slidesPerGroup: 3,
+            //   },
+            //   1024: {
+            //     slidesPerView: 5,
+            //     spaceBetween: 5,
+            //     slidesPerGroup: 4,
+            //   },
+            //   1260: {
+            //     slidesPerView: 6,
+            //     spaceBetween: 5,
+            //     slidesPerGroup: 5,
+            //   },
+            // }}
           >
             {loading ? <div className='flex align-center justify-center'>
               <Loading />

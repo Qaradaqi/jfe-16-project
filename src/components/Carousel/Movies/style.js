@@ -33,7 +33,9 @@ padding: 28px 0 41px;
   }
 
   .swiper-slide {
-    width: 100%;
+    max-width: 244px;
+    max-height: 366px;
+    aspect-ratio: 2/3;
     font-size: 18px;
     background: ${pallete.whiteColor};
     color: ${pallete.darkColor};
@@ -51,11 +53,11 @@ padding: 28px 0 41px;
   // .swiper-slide:nth-last-child(1) {
   //   margin-right: 120px !important;
   // }
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  // .swiper-slide img {
+  //   display: block;
+  //   width: 100%;
+  //   height: 100%;
+  //   object-fit: cover;
+  // }
 }
 `;

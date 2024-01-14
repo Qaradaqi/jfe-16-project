@@ -87,11 +87,11 @@ export default function Footer() {
         <FooterItems column={firstColumn} />
         <FooterItems column={secondColumn} />
         <FooterItems column={thirdColumn} />
-        <div className={width > 1440 ? 'active' : 'deactive'}>
+        <div className={width < 1440 && 'deactive'}>
           <FooterSocial />
         </div>
       </div>
-      <div className={width < 1024 ? 'active flex flex-column align-start' : 'deactive'}>
+      <div className={width < 1024 ? 'flex flex-column align-start' : 'deactive'}>
         <div className="responsive-item">
           <FooterResponsiveItems column={firstColumn} />
         </div>
@@ -102,7 +102,7 @@ export default function Footer() {
           <FooterResponsiveItems column={thirdColumn} />
         </div>
       </div>
-      <div className={width < 1440 ? 'active' : 'deactive'}>
+      <div className={width > 1440 && 'deactive'}>
         <div className="second-social flex align-center justify-center">
           <FooterSocial />
         </div>

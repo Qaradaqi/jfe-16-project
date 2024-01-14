@@ -5,7 +5,7 @@ export const Style = styled.div`
 background: #000c;
 width: 100vw;
 min-height: 100vh;
-position: absolute;
+position: fixed;
 top: 0;
 left: 0;
 z-index: 11;

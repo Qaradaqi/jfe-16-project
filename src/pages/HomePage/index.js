@@ -6,6 +6,7 @@ import HeroSection from "../../components/HeroSection";
 import GenresApi from "../../components/Genres";
 import AccountBanner from "../../components/Account";
 import GenresSlider from "../../components/Carousel/Genres";
+import Movies from "../../components/Carousel/Movies/Slider";
 
 export default function HomePage() {
     const genres = GenresApi();
@@ -17,7 +18,8 @@ export default function HomePage() {
                 <AccountBanner />
                 {genres.map((genre, id) => {
                     return (
-                        <MovieSlider key={id} name={genre.name} id={genre.id} page={1} />
+                        // <MovieSlider key={id} name={genre.name} id={genre.id} page={1} />
+                        <Movies key={id} name={genre.name} id={genre.id} page={1} />
                     );
                 })}
                 <GenresSlider />
