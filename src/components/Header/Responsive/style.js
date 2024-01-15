@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { pallete } from "../../../theme";
 
 export const Style = styled.div`
+display: none;
 position: fixed;
 width: 100%;
 top: 0;

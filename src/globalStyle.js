@@ -4,6 +4,7 @@ import { pallete } from "./theme";
 const GlobalStyle = createGlobalStyle`
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 * {
     margin: 0;
@@ -65,11 +66,32 @@ ul, ol {
 .justify-end {
     justify-content: end;
 }
+/* width */
+    ::-webkit-scrollbar {
+        width: 6px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 2px ${pallete.darkColor}; 
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: ${pallete.boneColor}; 
+        border-radius: 3px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: ${pallete.boneColor}; 
+    }
 .gap-5 {
     gap: 5px;
 }
 .gap-10 {
     gap: 10px;
+}
+.gap-20 {
+    gap: 20px;
 }
 .mrl-8 {
     margin: 0 8px;

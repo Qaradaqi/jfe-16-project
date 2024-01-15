@@ -24,22 +24,21 @@ export default function Movies({ name, id, page }) {
   useEffect(() => {
     setLoading(true);
     getApi();
-  }, []);
-  useEffect(() => {
     if (slide.current) {
-      if (movies.data.length * slide.current.offsetWidth < window.innerWidth) {
+      if (movies.data.length * slide.current.offsetWidth <= 0.9*(window.innerWidth)) {
+        console.log(movies.data.length * slide.current.offsetWidth)
         setDisablePrev(true);
         setDisablePrev(true);
       }
     }
-  }, [slide.current]);
+  }, []);
+
   useEffect(() => {
     if (trans != 0) {
       setDisablePrev(false);
     } else {
       setDisablePrev(true);
     }
-
     if (slide.current) {
       if (Math.abs(trans) >= slide.current.offsetWidth * (movies.data.length - (Math.floor(window.innerWidth / slide.current.offsetWidth) - 1))) {
         setDisableNext(true);
