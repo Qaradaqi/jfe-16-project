@@ -5,7 +5,7 @@ export default function useMovieData(genre, pageNumber) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [hasMore, setHasMore] = useState(false);
-  const [pageData, setPageData] = useState([]);
+  const [pageData, setPageData] = useState([[]]);
   const [data, setData] = useState([]);
   useEffect(() => {
     setData([]);

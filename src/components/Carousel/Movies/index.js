@@ -65,10 +65,8 @@ export default function MovieSlider({ name, id, page }) {
           <Swiper
             freeMode
             navigation
-            effect='fade'
             spaceBetween={8}
             speed={200}
-            slidesPerView={'auto'}
             breakpointsBase="window"
             modules={[FreeMode, Navigation]}
             breakpoints={{
@@ -83,6 +81,9 @@ export default function MovieSlider({ name, id, page }) {
               1024: {
                 width: 244,
                 height: 366,
+              },
+              1366: {
+                slidesPerGroup: 5,
               }
             }}
           >

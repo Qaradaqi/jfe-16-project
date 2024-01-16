@@ -61,10 +61,36 @@ export default function GenresSlider() {
             navigation={true}
             spaceBetween={8}
             slidesPerView={itemsPerView}
-            slidesPerGroup={slidesToMovePerClick} // Move slidesToMovePerClick slides together
-            speed={200} // Default transition duration
+            slidesPerGroup={slidesToMovePerClick}
+            speed={200} 
             onSwiper={(swiper) => (swiperRef.current = swiper)}
-            // onTransitionEnd={(swiper) => { swiper.snapGrid = [0, 1180]; }}
+            breakpointsBase='window'
+            breakpoints={{
+              100: {
+                slidesPerView: 2,
+                slidesPerGroup: 1,
+              },
+              512: {
+                slidesPerView: 4,
+                slidesPerGroup: 3,
+              },
+              740: {
+                slidesPerView: 5,
+                slidesPerGroup: 4,
+              },
+              835: {
+                slidesPerView: 6,
+                slidesPerGroup: 5,
+              },
+              1024: {
+                slidesPerView: 7,
+                slidesPerGroup: 6,
+              },
+              1366: {
+                slidesPerView: 9,
+                slidesPerGroup: 8,
+              }
+            }}
           >
             {loading ? <div className='flex align-center justify-center'>
               <Loading />

@@ -7,6 +7,7 @@ import GenresApi from "../../components/Genres";
 import AccountBanner from "../../components/Account";
 import GenresSlider from "../../components/Carousel/Genres";
 import Movies from "../../components/Carousel/Movies/Slider";
+import Genres from "../../components/Carousel/Genres/Slider";
 
 export default function HomePage() {
     const genres = GenresApi();

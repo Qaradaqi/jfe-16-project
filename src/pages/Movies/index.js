@@ -201,6 +201,25 @@ export default function Movies() {
       </div >
     );
   }
+  function renderFarmPagination() {
+    return (
+      pageData[pageNumber - 1].map((item, index) => {
+        if (pageData[pageNumber - 1].length === index + 1) {
+          return (
+            <div ref={lastMovieElementRef} className="item flex align-center justify-center" key={index}>
+              <MovieCard id={item.id} title={item.title} poster={item.poster} />
+            </div>
+          );
+        } else {
+          return (
+            <div className="item flex align-center justify-center" key={index}>
+              <MovieCard id={item.id} title={item.title} poster={item.poster} />
+            </div>
+          );
+        }
+      })
+    );
+  }
   // console.log(data);
   console.log(pageData);
 
@@ -209,7 +228,7 @@ export default function Movies() {
       <HelemetFunc title={'Crackle - Watch Movies Online, Free TV Shows, &amp; Original Online Series'} />
       <Style>
         <div className="full-container">
-          <div className="content flex gap-20">
+          <div className="content flex align-start">
             <div className="left-sidebar">
               <div className="left-sidebar-menu">
                 {handleLeftSidebar()}
@@ -223,6 +242,10 @@ export default function Movies() {
                 : <div className="items flex align-center wrap">
                   <div className="movies-title flex align-start justify-between">
                     <div className="title-h">{items[genre].name}</div>
+                    <div className="responsive-menu-btn align-center justify-center gap-5">
+                      <span>Select Category</span>
+                      <i className="fa-solid fa-angle-down"></i>
+                    </div>
                     <div className="title-sort flex flex-column align-end justify-center gap-5">
                       <div className="sort-btn flex align-center justify-end gap-10" onClick={() => { setIsOpen(!isOpen); }}>
                         <span>Sort: {sortItems[sort - 1].title}</span>
