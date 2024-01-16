@@ -27,6 +27,7 @@ export default function Movies() {
   const [pageNumber, setPageNumber] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const [sort, setSort] = useState(1);
+  const containerRef = useRef(null);
   const items = [
     {
       "id": 0,
@@ -121,6 +122,11 @@ export default function Movies() {
     data,
     pageData } =
     useMovieData(genre, pageNumber);
+
+  useEffect(() => {
+    setSort(1);
+  }, [genre]);
+
   const observer = useRef();
   const lastMovieElementRef = useCallback((node) => {
     if (loading) {
@@ -138,9 +144,6 @@ export default function Movies() {
       observer.current.observe(node);
     }
   }, [loading, hasMore]);
-  useEffect(() => {
-    setSort(1);
-  }, [genre]);
   function handleLeftSidebar() {
     return (
       <ul className="sidebar-items flex flex-column align-start justify-center">

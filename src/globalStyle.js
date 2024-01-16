@@ -18,6 +18,7 @@ body {
     background: ${pallete.bodyBG};
     color: ${pallete.whiteColor};
     font-family: 'Sora', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 a {
     text-decoration: none;

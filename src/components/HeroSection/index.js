@@ -60,7 +60,8 @@ export default function HeroSection({ id, genre_id }) {
           </div>
         </div>
         <div className="spotlight">
-          <Movies id={genre_id} name={'Spotligiht'} page={1} />
+          <MovieSlider id={genre_id} name={'Spotligiht'} page={1} />
+          {/* <Movies id={genre_id} name={'Spotligiht'} page={1} /> */}
         </div>
       </div>
     </Style>

@@ -6,13 +6,14 @@ export const Style = styled.div`
   color: ${pallete.boneColor};
   font-size: 1.6rem;
   line-height: 2;
-  font-weight: 700;
   padding: 0 12px;
   width: 95%;
   background-color: ${pallete.footerBG};
 }
 .col-items {
   .col-item {
+    margin-left: 14px;
+    transition: all 70ms ease-in-out;
     a {
       font-weight: 400;
       font-size: 1.6rem;

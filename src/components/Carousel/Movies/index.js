@@ -6,18 +6,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 // import required modules
-import { Navigation } from 'swiper/modules';
-import { useEffect, useRef, useState } from 'react';
+import { FreeMode, Navigation } from 'swiper/modules';
+import { useEffect, useState } from 'react';
 import MovieCard from '../../uiElements/Card';
 import Loading from '../../Loading';
 import { api } from '../../../utils/api';
 import { Link } from 'react-router-dom';
-let itemsPerView = 6;
-let slidesToMovePerClick = 5;
+
 
 export default function MovieSlider({ name, id, page }) {
-  const swiperRef = useRef(null);
-  let isTrigered = false;
   const [loading, setLoading] = useState(false);
   const [movies, setMovies] = useState({
     data: [],
@@ -66,58 +63,28 @@ export default function MovieSlider({ name, id, page }) {
         </div>
         <div className='items'>
           <Swiper
-            modules={[Navigation]}
-            navigation={true}
+            freeMode
+            navigation
+            effect='fade'
             spaceBetween={8}
-            slidesPerView={itemsPerView}
-            slidesPerGroup={slidesToMovePerClick} // Move slidesToMovePerClick slides together
-            speed={200} // Default transition duration
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            onSetTransition={(swiper) => {
-              if (swiper.isEnd && !isTrigered) {
-                isTrigered = true;
-                swiper.snapGrid[swiper.snapGrid.length - 1] += 200;
-                swiper.translate -= 200;
-                swiper.translateTo = swiper.translate;
-                swiper.width = swiper.snapGrid[swiper.snapGrid.length - 1];
-                swiper.slidesGrid[swiper.activeIndex] += 200;
+            speed={200}
+            slidesPerView={'auto'}
+            breakpointsBase="window"
+            modules={[FreeMode, Navigation]}
+            breakpoints={{
+              100: {
+                width: 132,
+                height: 198,
+              },
+              740: {
+                width: 200,
+                height: 300,
+              },
+              1024: {
+                width: 244,
+                height: 366,
               }
             }}
-            // breakpointsBase="window"
-            // breakpoints={{
-            //   250: {
-            //     slidesPerView: 1,
-            //     spaceBetween: 5,
-            //     slidesPerGroup: 1,
-            //   },
-            //   380: {
-            //     slidesPerView: 2,
-            //     spaceBetween: 5,
-            //     slidesPerGroup: 1,
-            //   },
-            //   520: {
-            //     slidesPerView: 3,
-            //     spaceBetween: 5,
-            //     slidesPerGroup: 2,
-            //   },
-            //   750: {
-            //     slidesPerView: 4,
-            //     spaceBetween: 5,
-            //     slidesPerGroup: 3,
-            //   },
-            //   1024: {
-            //     slidesPerView: 5,
-            //     spaceBetween: 5,
-            //     slidesPerGroup: 4,
-            //   },
-            //   1260: {
-            //     slidesPerView: 6,
-            //     spaceBetween: 5,
-            //     slidesPerGroup: 5,
-            //   },
-            // }}
           >
             {loading ? <div className='flex align-center justify-center'>
               <Loading />

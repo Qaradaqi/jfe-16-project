@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { api } from "../../utils/api";
 import Loading from "../Loading";
 import MovieCard from "../uiElements/Card";
+import Button from "../uiElements/Button";
 
 
 export default function SuggestionList({ genreId, movieId }) {

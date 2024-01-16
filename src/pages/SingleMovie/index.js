@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import HelemetFunc from "../../components/Helmet";
 import PrimaryLayout from "../../components/Layout/PrimaryLayout";
 import { Style } from "./style";
@@ -126,40 +126,57 @@ export default function SingleMovie() {
     return (
       <div className="full-container">
         <div className="background"></div>
-        <div className="content">
-          <div className="type-country-imdb flex align-center justify-start gap-5">
-            <p className="type">{data.type}</p>
-            <p className="country">{data.country}</p>
-            <p className="imdb flex align-center gap-5 justify-center">
-              <span>imdb: </span>
-              <span>{data.imdb_rating}</span>
-            </p>
+        <div className="box flex align-end justify-between">
+          <div className="content">
+            <div className="play-btn">
+              <Link className="flex align-center justify-center" to={'/'}>
+                <i className="fa-solid fa-circle-play"></i>
+              </Link>
+            </div>
+            <div className="flex align-center justify-between">
+              <div className="type-country-imdb flex align-center justify-start gap-5">
+                <p className="type">{data.type}</p>
+                <p className="country">{data.country}</p>
+                <p className="imdb flex align-center gap-5 justify-center">
+                  <span>imdb: </span>
+                  <span>{data.imdb_rating}</span>
+                </p>
+              </div>
+              <div className="small-share flex align-center justify-center">
+                <Link to={'/'} className="flex align-center justify-center">
+                  <i className="fa-solid fa-arrow-up-from-bracket"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="title flex align-center justify-start">
+              <h3>{data.title}</h3>
+            </div>
+            <div className="year-runtime flex align-center justify-start gap-5">
+              <span>{data.year}</span>
+              <span> ▪ </span>
+              <span>{data.runtime}</span>
+            </div>
+            <div className="btn flex align-center gap-5">
+              {window.innerWidth > 740 && <Button href={'/'} type='primary' size='large' icon={'fa-solid fa-play'}>Watch Now</Button>}
+              <Button href={'/'} type='dark' size='large' icon={'fa-solid fa-plus'}>Add to Watchlist</Button>
+            </div>
+            <div className="genres">
+              <span>{data.genres && data.genres.join(' ▪ ')}</span>
+            </div>
+            <div className="director flex align-center justify-start">
+              <h3>Directed by</h3>
+              <span>{data.director}</span>
+            </div>
+            <div className="actors flex align-center justify-start">
+              <h3>Starring</h3>
+              <span>{data.actors}</span>
+            </div>
+            <div className="plot flex align-center">
+              <p>{data.plot}</p>
+            </div>
           </div>
-          <div className="title flex align-center justify-start">
-            <h3>{data.title}</h3>
-          </div>
-          <div className="year-runtime flex align-center justify-start gap-5">
-            <span>{data.year}</span>
-            <span> ▪ </span>
-            <span>{data.runtime}</span>
-          </div>
-          <div className="btn flex align-center gap-5">
-            <Button href={'/'} type='primary' size='large' icon={'fa-solid fa-play'}>Watch Now</Button>
-            <Button href={'/'} type='dark' size='large' icon={'fa-solid fa-plus'}>Add to Watchlist</Button>
-          </div>
-          <div className="genres">
-            <span>{data.genres && data.genres.join(' ▪ ')}</span>
-          </div>
-          <div className="director flex align-center justify-start">
-            <h3>Directed by</h3>
-            <span>{data.director}</span>
-          </div>
-          <div className="actors flex align-center justify-start">
-            <h3>Starring</h3>
-            <span>{data.actors}</span>
-          </div>
-          <div className="plot flex align-center">
-            <p>{data.plot}</p>
+          <div className="share">
+            <Button href={'/'} type={'dark'} size={'medium'} icon={'fa-solid fa-arrow-up-from-bracket'}>Share</Button>
           </div>
         </div>
       </div>
