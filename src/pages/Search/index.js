@@ -48,6 +48,9 @@ export default function Search() {
     setSearchParams(createSearchParams({ q: value }));
 
   };
+  const handleClear = () => {
+    setSearchParams({ q: '' });
+  };
   function renderFarm() {
     return (
       <div className="result flex aling-start justify-between">
@@ -62,7 +65,7 @@ export default function Search() {
             );
           })}
         </ul>
-        <ul className="items flex align-center justify-start wrap">
+        <ul className="items flex align-center justify-end wrap">
           {data.data.map((item, index) => {
             return (
               <li className="item flex align-center" key={index}>
@@ -79,12 +82,18 @@ export default function Search() {
       <HelemetFunc title={'Crackle - Watch Movies Online, Free TV Shows, &amp; Original Online Series'} />
       <Style>
         <div className="full-container">
-          <div className="flex align-center justify-start">
-            <Link className="arrow-icon flex align-center justify-center" to={'/'}>
+          <div className="flex align-start justify-start">
+            <Link className="arrow-icon flex align-center justify-center" to={'/movies'}>
               <i className="fa-solid fa-arrow-left"></i>
             </Link>
-            <div className="input-box flex align-center">
+            <div className="input-box flex align-center justify-between">
               <input ref={input} onChange={handleChange} className="input" type="text" name="input" value={searchParams.get('q') && searchParams.get('q')} />
+              <div onClick={handleClear} className="clear-btn-large flex align-center justify-center">
+                <span>clear</span>
+              </div>
+              <div onClick={handleClear} className="clear-btn-small flex align-center justify-center">
+                <i className="fa-solid fa-circle-xmark"></i>
+              </div>
             </div>
           </div>
           {loading ? <div className="flex justify-center align-center">

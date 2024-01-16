@@ -16,4 +16,8 @@ li {
     }
   }
 }
+@media only screen and (max-width: 1024px) {
+  width: 100%;
+  padding: 12px 60px;
+}
 `;

@@ -2,16 +2,22 @@ import styled from "styled-components";
 import { pallete } from "../../theme";
 
 export const Style = styled.div`
-  padding: 100px 0;
+  padding: 75px 0;
   .arrow-icon {
     color: ${pallete.primaryColor};
     background: ${pallete.footerBG};
     font-size: 1.8rem;
     font-weight: 400;
-    padding: 5px;
     border-radius: 50%;
     margin: 16px;
-    padding: 5px;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border: 2px solid transparent;
+    transition: all 70ms ease-in-out;
+    &:hover {
+      border: 2px solid ${pallete.darkBorder};
+    }
   }
   .input-box {
     position: relative;
@@ -28,6 +34,29 @@ export const Style = styled.div`
       font-weight: 400;
       font-family: 'Sora', sans-serif;
     }
+    .clear-btn-large {
+      width: 55px;
+      height: 32px;
+      color: #f33!important;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 1.4rem;
+      background: #0000;
+      border: 1px solid ${pallete.darkBorder};
+      backdrop-filter: blur(8px);
+      border-radius: ${pallete.defaultRadius};
+      cursor: pointer;
+      transition: all 70ms ease-in-out;
+      &:hover {
+        border: 2px solid #f33!important;
+      }
+    }
+    .clear-btn-small {
+      display: none;
+      color: ${pallete.primaryColor};
+      font-size: 2rem;
+      font-weight: 800;
+    }
     &::after {
       content: '';
       position: absolute;
@@ -40,6 +69,7 @@ export const Style = styled.div`
   }
   .result-title {
     padding: 0 72px;
+    margin-top: 31px;
     h3 {
       color: ${pallete.whiteColor};
       width: 100%;
@@ -84,14 +114,14 @@ export const Style = styled.div`
     margin-top: 30px;
     .list {
       padding: 0 8px; 
-      width: 25%;
+      width: 24.5vw;
       .list-item {
         .item-link {
           font-weight: 400;
           font-size: 1.6rem;
           color: ${pallete.whiteColor};
           padding: 8px;
-          width: 100%;
+          width: 23.4375vw;
           margin-bottom: 8px;
           border: 1px solid ${pallete.darkBorder};
           border-radius: 12px;
@@ -105,14 +135,120 @@ export const Style = styled.div`
       }
     }
     .items {
-      padding-left: 72px;
-      width: 100%;
+      margin: 0 auto;
+      width: calc(100% - 16px);
       .item {
-        height: 275px;
-        width: 18.0%;
+        flex-grow: 1;
+        aspect-ratio: 2/3;
+        width: calc(20% - 16px);
         padding: 8px;
         &:hover {
           z-index: 2;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 1366px) {
+    .result-title {
+      padding: 0 48px;
+    }
+    .no-result {
+      padding: 16px 48px;
+    }
+    .result {
+      padding: 0 48px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .input-box {
+      .clear-btn-large {
+        display: none;
+      }
+      .clear-btn-small {
+        display: flex;
+      }
+    }
+    .result-title {
+      padding: 0 40px;
+    }
+    .no-result {
+      padding: 16px 40px;
+    }
+    .result {
+      flex-direction: column;
+      padding: 0 40px;
+      .list {
+        flex-direction: row;
+        overflow-x: scroll;
+        width: 100%;
+        padding: 8px;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        .list-item {
+          .item-link {
+            white-space: nowrap;
+            width: unset;
+            margin-right: 8px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            border: 1px solid #0000;
+          }
+        }
+      }
+      .items {
+        margin: 0;
+        width: 100%;
+        .item {
+          width: calc(25% - 16px);
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 835px) {
+    .result-title {
+      padding: 0 32px;
+    }
+    .no-result {
+      padding: 16px 32px;
+    }
+    .result {
+      padding: 0 32px;
+    }
+  }
+  @media only screen and (max-width: 740px) {
+    padding: 58px 0;
+    .arrow-icon {
+      display: none;
+    }
+    .input-box {
+      margin: 16px;
+      .input {
+        height: 46px;
+      font-size: 2.4rem;
+      line-height: 1.2;
+      padding: 4px;
+      border-bottom: none;
+      width: 100%;
+      }
+    }
+    .result-title {
+      padding: 0 16px;
+    }
+    .no-result {
+      padding: 16px;
+    }
+    .result {
+      padding: 0 16px;
+    }
+  }
+  @media only screen and (max-width: 512px) {
+    .result {
+      .items {
+        .item {
+          width: calc(50% - 16px);
         }
       }
     }

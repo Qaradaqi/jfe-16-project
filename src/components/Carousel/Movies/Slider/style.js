@@ -22,6 +22,7 @@ padding: 28px 0 41px;
     overflow: hidden;
     position: relative;
     .items-slider {
+      overflow-x: scroll;
       width: 100%;
       padding: 45px 0 45px 72px;
       transition: all 70ms ease-in-out;
@@ -32,6 +33,9 @@ padding: 28px 0 41px;
         &:hover {
           z-index: 2;
         }
+      }
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
     .nav-btn {
