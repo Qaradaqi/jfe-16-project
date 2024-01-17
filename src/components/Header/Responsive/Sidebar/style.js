@@ -14,10 +14,12 @@ z-index: 11;
   height: 100vh;
   background: linear-gradient(180deg,#0009,#0000),#141414;
   .sidebar-close {
-    color: ${pallete.whiteColor};
-    font-size: 2rem;
-    min-height: 56px;
-    padding: 9px 22px;
+    i {
+      color: ${pallete.whiteColor};
+      font-size: 2rem;
+      min-height: 56px;
+      padding: 22px;
+    }
   }
   .sidebar-items {
     .item {

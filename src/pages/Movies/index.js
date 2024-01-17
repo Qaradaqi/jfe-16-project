@@ -26,6 +26,7 @@ export default function Movies() {
   const [genre, setGenre] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [sort, setSort] = useState(1);
   const containerRef = useRef(null);
   const items = [
@@ -144,6 +145,32 @@ export default function Movies() {
       observer.current.observe(node);
     }
   }, [loading, hasMore]);
+  function handleCategoryMenu() {
+    return (
+      <div className="category-menu flex-column align-start justify-start ">
+        <div className="category-close-btn flex align-start justify-start">
+          <i onClick={() => (setIsCategoryOpen(!isCategoryOpen))} className="fa-solid fa-xmark"></i>
+        </div>
+        <div className="category-title flex align-start justify-start">
+          <h3>Select Category</h3>
+        </div>
+        <ul className="category-items flex flex-column align-start justify-start">
+          {items.map((item, index) => {
+            return (
+              <li onClick={() => {
+                setGenre(item.id);
+                setPageNumber(1);
+                setIsCategoryOpen(!isCategoryOpen);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }} className={item.id === genre ? 'category-item selected flex align-center justify-start' : 'category-item flex align-center justify-start'} key={index}>
+                {item.name}
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    );
+  }
   function handleLeftSidebar() {
     return (
       <ul className="sidebar-items flex flex-column align-start justify-center">
@@ -185,6 +212,9 @@ export default function Movies() {
   function sortMenu() {
     return (
       <div className="sort-menu">
+        <div className="sort-menu-close-btn align-start justify-start">
+          <i onClick={() => (setIsOpen(!isOpen))} className="fa-solid fa-xmark"></i>
+        </div>
         <div className="sort-menu-title flex flex-column align-start justify-center">
           <h3>Sort By</h3>
         </div>
@@ -201,27 +231,6 @@ export default function Movies() {
       </div >
     );
   }
-  function renderFarmPagination() {
-    return (
-      pageData[pageNumber - 1].map((item, index) => {
-        if (pageData[pageNumber - 1].length === index + 1) {
-          return (
-            <div ref={lastMovieElementRef} className="item flex align-center justify-center" key={index}>
-              <MovieCard id={item.id} title={item.title} poster={item.poster} />
-            </div>
-          );
-        } else {
-          return (
-            <div className="item flex align-center justify-center" key={index}>
-              <MovieCard id={item.id} title={item.title} poster={item.poster} />
-            </div>
-          );
-        }
-      })
-    );
-  }
-  // console.log(data);
-  console.log(pageData);
 
   return (
     <PrimaryLayout>
@@ -229,6 +238,7 @@ export default function Movies() {
       <Style>
         <div className="full-container">
           <div className="content flex align-start">
+            {isCategoryOpen && handleCategoryMenu()}
             <div className="left-sidebar">
               <div className="left-sidebar-menu">
                 {handleLeftSidebar()}
@@ -242,7 +252,7 @@ export default function Movies() {
                 : <div className="items flex align-center wrap">
                   <div className="movies-title flex align-start justify-between">
                     <div className="title-h">{items[genre].name}</div>
-                    <div className="responsive-menu-btn align-center justify-center gap-5">
+                    <div onClick={() => (setIsCategoryOpen(!isCategoryOpen))} className="responsive-menu-btn align-center justify-center gap-5">
                       <span>Select Category</span>
                       <i className="fa-solid fa-angle-down"></i>
                     </div>

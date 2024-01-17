@@ -53,6 +53,55 @@ min-height: 100vh;
       background: linear-gradient(0deg,#14141400,#141414);
     }
   }
+  .category-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+    border-radius: ${pallete.defaultRadius};
+    backdrop-filter: blur(16px);
+    background: #0d0d0de6;
+    padding: 0 16px 32px;
+    .category-close-btn {
+      color: ${pallete.whiteColor};
+      i {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 15px 0;
+        padding: 10px;
+      }
+    }
+    .category-title {
+      padding: 5px 0;
+      font-size: 2.3rem;
+      h3 {
+        font-weight: 400;
+        color: ${pallete.boneColor};
+      }
+    }
+    .category-items {
+      padding: 28px 16px 63px 16px;
+      overflow-y: auto;
+      height: 80vh;
+      width: 100%;
+      .category-item {
+        color: ${pallete.boneColor};
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        padding: 8px;
+        width: 90%;
+        &.selected {
+          font-weight: 700;
+          background: ${pallete.darkHoverBG};
+        }
+      }
+    }
+  }
   .right-content {
     width: 100%;
     min-height: 100vh;
@@ -122,6 +171,16 @@ min-height: 100vh;
             transition: opacity .08s ease-in-out;
             opacity: 1;
             pointer-events: auto;
+            .sort-menu-close-btn {
+              color: ${pallete.whiteColor};
+              display: none;
+              i {
+                font-size: 2rem;
+                font-weight: 800;
+                margin: 15px 0 32px 0;
+                padding: 10px;
+              }
+            }
             .sort-menu-title {
               font-weight: 400;
               font-size: 2.4rem;
@@ -207,6 +266,9 @@ min-height: 100vh;
 @media only screen and (max-width: 835px) {
   .content {
     padding: 0 32px;
+    .category-menu {
+      display: flex;
+    }
     .left-sidebar {
       display: none;
     }
@@ -224,6 +286,28 @@ min-height: 100vh;
             bottom: 40px;
             right: 51px;
             z-index: 5;
+            .sort-menu {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              z-index: 5;
+              border-radius: ${pallete.defaultRadius};
+              backdrop-filter: blur(16px);
+              background: #0d0d0de6;
+              padding: 72px 16px 32px;
+              .sort-menu-close-btn {
+                display: flex;
+              }
+              .sort-menu-title {
+                padding: 5px 0;
+                font-size: 2.3rem;
+                h3 {
+                  font-weight: 400;
+                }
+              }
+            }
           }
         }
       }

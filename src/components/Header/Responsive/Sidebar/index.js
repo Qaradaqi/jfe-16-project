@@ -29,11 +29,11 @@ export default function Sidebar({ open, onClickOutside }) {
   return (
     <Style className="flex flex-column align-start">
       <div className="full-container">
-        <div className="sidebar-content">
+        <div ref={sidebar} className="sidebar-content">
           <div className="sidebar-close flex align-center">
-            <i className="fa-solid fa-xmark"></i>
+            <i onClick={onClickOutside} className="fa-solid fa-xmark"></i>
           </div>
-          <div className="sidebar-items flex flex-column nowrap" ref={sidebar}>
+          <div className="sidebar-items flex flex-column nowrap">
             <div className="item logo flex align-center">
               <Link className="flex align-center justify-center" to={'/'}>
                 <svg className="img" width="226" height="40" viewBox="0 0 226 40" fill="#ff601c" xmlns="http://www.w3.org/2000/svg">

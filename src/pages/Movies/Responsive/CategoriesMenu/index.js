@@ -1,6 +1,6 @@
 import { Style } from "./style";
 
-export default function ResponsiveMovieMenu() {
+export default function ResponsiveCategoryMenu({categories}) {
   return (
     <Style>
 
