@@ -23,7 +23,7 @@ export default function HomePage() {
                         // <Movies key={id} name={genre.name} id={genre.id} page={1} />
                     );
                 })}
-                <GenresSlider />
+                {/* <GenresSlider /> */}
             </Style>
         </PrimaryLayout>
     );

@@ -82,9 +82,6 @@ export default function MovieSlider({ name, id, page }) {
                 width: 244,
                 height: 366,
               },
-              1366: {
-                slidesPerGroup: 5,
-              }
             }}
           >
             {loading ? <div className='flex align-center justify-center'>

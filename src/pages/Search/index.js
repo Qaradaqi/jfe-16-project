@@ -88,12 +88,12 @@ export default function Search() {
             </Link>
             <div className="input-box flex align-center justify-between">
               <input ref={input} onChange={handleChange} className="input" type="text" name="input" value={searchParams.get('q') && searchParams.get('q')} />
-              <div onClick={handleClear} className="clear-btn-large flex align-center justify-center">
+              {searchParams.get('q') && <div onClick={handleClear} className="clear-btn-large flex align-center justify-center">
                 <span>clear</span>
-              </div>
-              <div onClick={handleClear} className="clear-btn-small flex align-center justify-center">
+              </div>}
+              {searchParams.get('q') && <div onClick={handleClear} className="clear-btn-small flex align-center justify-center">
                 <i className="fa-solid fa-circle-xmark"></i>
-              </div>
+              </div>}
             </div>
           </div>
           {loading ? <div className="flex justify-center align-center">

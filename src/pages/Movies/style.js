@@ -11,13 +11,13 @@ min-height: 100vh;
   .left-sidebar {
     border: 1px solid ${pallete.darkBorder};
     border-radius: ${pallete.defaultRadius};
-    padding: 5px 5px 5px 0;
+    padding: 15px 5px 5px 0;
     position: sticky;
     background: ${pallete.darkColor};
     top: 0;
     width: 242px;
     overflow-y: auto;
-    height: 100vh;
+    height: 90vh;
     .left-sidebar-menu {
       .sidebar-items {
         padding: 28px 16px;
