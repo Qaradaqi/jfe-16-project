@@ -26,10 +26,11 @@ export default function MovieSlider({ name, id, page }) {
     }
   });
   useEffect(() => {
-    setLoading(true);
     getApi();
+
   }, []);
   function getApi() {
+    setLoading(true);
     api
       .get(`genres/${id}/movies`, { params: { page: page, per_page: movies.metadata.per_page } })
       .then((res) => {

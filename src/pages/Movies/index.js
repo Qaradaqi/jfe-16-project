@@ -5,6 +5,7 @@ import { Style } from "./style";
 import useMovieData from "./useMovieData";
 import MovieCard from "../../components/uiElements/Card";
 import Loading from "../../components/Loading";
+import { createSearchParams, useParams, useSearchParams } from "react-router-dom";
 
 
 const sortItems = [
@@ -23,7 +24,8 @@ const sortItems = [
 ];
 
 export default function Movies() {
-  const [genre, setGenre] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams({ category: 0 });
+  const [genre, setGenre] = useState(parseInt(searchParams.get('category')));
   const [pageNumber, setPageNumber] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -159,6 +161,7 @@ export default function Movies() {
             return (
               <li onClick={() => {
                 setGenre(item.id);
+                setSearchParams(createSearchParams({ category: item.id }));
                 setPageNumber(1);
                 setIsCategoryOpen(!isCategoryOpen);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -179,6 +182,7 @@ export default function Movies() {
             <li onClick={() => {
               setGenre(item.id);
               setPageNumber(1);
+              setSearchParams(createSearchParams({ category: item.id }));
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }} className={item.id === genre ? 'sidebar-item selected flex align-center justify-start' : 'sidebar-item flex align-center justify-start'} key={index}>
               {item.name}
@@ -231,7 +235,6 @@ export default function Movies() {
       </div >
     );
   }
-
   return (
     <PrimaryLayout>
       <HelemetFunc title={'Crackle - Watch Movies Online, Free TV Shows, &amp; Original Online Series'} />
